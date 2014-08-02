@@ -2,6 +2,7 @@
 	pageEncoding="US-ASCII"%>
 <%@ page import="db.spot.client.Client"%>
 <%@ page import="org.json.JSONArray"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,7 +16,7 @@
 
 		<%
 			Client c = new Client();
-			//JSONArray output = c.process("I'm to learn NLP with Artificial");
+			
 			long start = System.currentTimeMillis();
 			JSONArray output = c.process(request.getParameter("server"),
 					request.getParameter("input"),

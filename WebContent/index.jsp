@@ -3,6 +3,8 @@
 	pageEncoding="US-ASCII"%>
 <%@ page import="db.spot.client.Client"%>
 <%@ page import="org.json.JSONArray"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.io.*"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,13 +31,14 @@
 				<div class="col-xs-6 col-sm-4">
 					<select class="form-control" name="server">
 						<option>http://spotlight.dbpedia.org/</option>
+						<option>http://localhost:2222/</option>
 						<option>http://10.52.128.116:2222/</option>
 					</select>
 				</div>
 			</div>
 			</br>
 			<div class="row">
-				<textarea class="form-control" rows="3" name = "input"></textarea>
+				<textarea class="form-control" rows="3" name="input"></textarea>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-8">This will be a

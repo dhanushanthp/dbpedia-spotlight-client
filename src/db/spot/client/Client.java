@@ -1,24 +1,21 @@
 package db.spot.client;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.Properties;
-import java.util.Scanner;
 
+import javax.servlet.http.HttpServlet;
+
+import org.apache.catalina.connector.Request;
 import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Client {
+public class Client extends HttpServlet{
 	//private final static String API_URL = "http://spotlight.dbpedia.org/";
 	// private final static String API_URL = "http://10.52.128.116:2222/";
 
@@ -28,8 +25,8 @@ public class Client {
 		JSONObject resultJSON = null;
 		JSONArray entities = null;
 		String spotlightResponse;
+		
 		try {
-			
 			GetMethod getMethod = new GetMethod(serviceUrl + "rest/annotate/?"
 					+ "confidence=" + confidence + "&support=" + support
 					+ "&text=" + URLEncoder.encode(input, "utf-8"));
