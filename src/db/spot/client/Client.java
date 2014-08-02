@@ -15,7 +15,7 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Client extends HttpServlet{
+public class Client{
 	//private final static String API_URL = "http://spotlight.dbpedia.org/";
 	// private final static String API_URL = "http://10.52.128.116:2222/";
 
