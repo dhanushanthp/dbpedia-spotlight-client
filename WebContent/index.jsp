@@ -32,17 +32,16 @@
 					<select class="form-control" name="server">
 						<option>http://spotlight.dbpedia.org/</option>
 						<option>http://localhost:2222/</option>
-						<option>http://10.52.128.116:2222/</option>
 					</select>
 				</div>
 			</div>
 			</br>
 			<div class="row">
-				<textarea class="form-control" rows="3" name="input"></textarea>
+				<textarea class="form-control" rows="3" name="input" style="width:1000px;" ></textarea>
 			</div>
+			</br>
 			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-8">This will be a
-					caution</div>
+				<div class="col-xs-12 col-sm-6 col-md-8"></div>
 				<div class="col-xs-6 col-md-4">
 					<input type="submit" value="Submit" /></input>
 				</div>
