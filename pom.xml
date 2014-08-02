@@ -45,15 +45,5 @@
 			<version>20140107</version>
 		</dependency>
 	</dependencies>
-	<profiles>
-		<profile>
-			<id>default</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<deploy.dir>/var/lib/tomcat7/webapps</deploy.dir>
-			</properties>
-		</profile>
-	</profiles>
+
 </project>
