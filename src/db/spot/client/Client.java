@@ -1,8 +1,11 @@
 package db.spot.client;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Properties;
 import java.util.Scanner;
 
 import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
@@ -16,21 +19,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Client {
-	private final static String API_URL = "http://spotlight.dbpedia.org/";
+	//private final static String API_URL = "http://spotlight.dbpedia.org/";
 	// private final static String API_URL = "http://10.52.128.116:2222/";
 
-	private static final double CONFIDENCE = 0;
-	private static final int SUPPORT = 50;
 	private static HttpClient client = new HttpClient();
 
-	public JSONArray process(String input) {
+	public JSONArray process(String serviceUrl,String input,double confidence,int support) {
 		JSONObject resultJSON = null;
 		JSONArray entities = null;
 		String spotlightResponse;
-
 		try {
-			GetMethod getMethod = new GetMethod(API_URL + "rest/annotate/?"
-					+ "confidence=" + CONFIDENCE + "&support=" + SUPPORT
+			
+			GetMethod getMethod = new GetMethod(serviceUrl + "rest/annotate/?"
+					+ "confidence=" + confidence + "&support=" + support
 					+ "&text=" + URLEncoder.encode(input, "utf-8"));
 			getMethod
 					.addRequestHeader(new Header("Accept", "application/json"));
@@ -54,21 +55,19 @@ public class Client {
 			entities = resultJSON.getJSONArray("Resources");
 
 			for (int i = 0; i < entities.length(); i++) {
-				System.out.println(entities.getJSONObject(i).get("@URI"));
-				System.out.println(entities.getJSONObject(i).get("@surfaceForm"));
+				System.out.println(entities.getJSONObject(i).get("@URI").toString().substring(28));
+				System.out.println(entities.getJSONObject(i)
+						.get("@surfaceForm"));
 				System.out.println(entities.getJSONObject(i).get("@offset"));
-				System.out.println(entities.getJSONObject(i).get("@types") + "\n\n");
+				System.out.println(entities.getJSONObject(i).get("@types")
+						+ "\n\n");
 			}
+			
+			System.out.println(spotlightResponse);
 		} catch (IOException e) {
 			System.out.println("Error");
 		}
 		return entities;
-	}
-
-	public static void main(String[] args) {
-		Client c = new Client();
-		String input = "I'm to learn NLP with Artificial";
-		c.process(input);
 	}
 
 }
