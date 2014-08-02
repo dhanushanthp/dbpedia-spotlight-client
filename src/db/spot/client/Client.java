@@ -3,9 +3,6 @@ package db.spot.client;
 import java.io.IOException;
 import java.net.URLEncoder;
 
-import javax.servlet.http.HttpServlet;
-
-import org.apache.catalina.connector.Request;
 import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
