@@ -16,10 +16,13 @@
 		<%
 			Client c = new Client();
 			//JSONArray output = c.process("I'm to learn NLP with Artificial");
+			long start = System.currentTimeMillis();
 			JSONArray output = c.process(request.getParameter("server"),
 					request.getParameter("input"),
 					Double.parseDouble(request.getParameter("confidence")),
 					Integer.parseInt(request.getParameter("support")));
+			long end = System.currentTimeMillis();
+			long differ = (end - start);
 		%>
 		<div class="alert alert-info"><%=request.getParameter("input")%></div>
 		<table class="table table-hover">
@@ -44,6 +47,7 @@
 			%>
 
 		</table>
+		<div class="alert alert-info">Process Duration :  <%=differ%> millisecond</div>
 	</div>
 </body>
 </html>
