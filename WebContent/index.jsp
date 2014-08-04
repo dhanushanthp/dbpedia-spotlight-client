@@ -41,7 +41,7 @@
 			</div>
 			</br>
 			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-8"></div>
+				<div class="col-xs-12 col-sm-6 col-md-8">"WebContent/index.jsp"</div>
 				<div class="col-xs-6 col-md-4">
 					<input type="submit" value="Submit" /></input>
 				</div>
