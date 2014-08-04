@@ -47,21 +47,25 @@ public class Client{
 
 			resultJSON = new JSONObject(spotlightResponse);
 			entities = resultJSON.getJSONArray("Resources");
-
-			for (int i = 0; i < entities.length(); i++) {
-				System.out.println(entities.getJSONObject(i).get("@URI").toString().substring(28));
-				System.out.println(entities.getJSONObject(i)
-						.get("@surfaceForm"));
-				System.out.println(entities.getJSONObject(i).get("@offset"));
-				System.out.println(entities.getJSONObject(i).get("@types")
-						+ "\n\n");
-			}
 			
 			System.out.println(spotlightResponse);
 		} catch (IOException e) {
 			System.out.println("Error");
 		}
 		return entities;
+	}
+	
+	public String [] getCate(String input){
+		String[] in = input.split(",");
+		String[] result = new String[in.length];
+		for (int i =0; i< in.length; i++) {
+			result[i] = in[i].substring(10);
+		}
+		return result ;
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 
 }

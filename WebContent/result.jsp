@@ -1,3 +1,4 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
 	pageEncoding="US-ASCII"%>
 <%@ page import="db.spot.client.Client"%>
@@ -31,6 +32,7 @@
 				<th>Actual name</th>
 				<th>Enhanced Name</th>
 				<th>Word Position</th>
+				<th>Category</th>
 			</tr>
 			<%
 				for (int i = 0; i < output.length(); i++) {
@@ -41,8 +43,17 @@
 				<td><a href=<%=output.getJSONObject(i).get("@URI")%>><%=output.getJSONObject(i).get("@URI").toString()
 						.substring(28)%></a></td>
 				<td><%=output.getJSONObject(i).get("@offset")%></td>
+				<td>	
+				<% String [] res = c.getCate(output.getJSONObject(i).get("@types").toString());%>
+				<%for(int j = 0; j < res.length; j++){
+					%>
+					<table>
+					<tr><%=res[j]%></tr>
+					</table>
+				<% } %>
+				</td>
 			</tr>
-
+			
 			<%
 				}
 			%>
