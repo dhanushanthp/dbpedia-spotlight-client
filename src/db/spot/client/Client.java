@@ -48,7 +48,7 @@ public class Client{
 			resultJSON = new JSONObject(spotlightResponse);
 			entities = resultJSON.getJSONArray("Resources");
 			
-			System.out.println(spotlightResponse);
+			//System.out.println(spotlightResponse);
 		} catch (IOException e) {
 			System.out.println("Error");
 		}
@@ -56,10 +56,13 @@ public class Client{
 	}
 	
 	public String [] getCate(String input){
+		
 		String[] in = input.split(",");
 		String[] result = new String[in.length];
 		for (int i =0; i< in.length; i++) {
-			result[i] = in[i].substring(10);
+			System.out.println(in[i].replace("DBpedia:", ""));
+			result[i] = in[i].replace("DBpedia:", "");
+			result[i] = in[i].replace("Freebase:/", "");
 		}
 		return result ;
 	}
